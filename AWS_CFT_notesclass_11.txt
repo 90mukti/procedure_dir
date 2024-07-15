@@ -1,0 +1,56 @@
+cloud formation templates -- infrastructure as code (IAC)
+
+aws cloud formation Template (CFT) is a IAC tool is used to only for AWS configuration similarly AZure has it's own IAC tool is AZURE resource manager (ARM)  template uses (bicep) script.
+
+while terraform is a cross cloud platform IAC tool used form multiple cloud providers.
+
+user submites declarative or versioned in nature to the cloud formation template. it takes the script and converts to cloud platform understandable language and does the task. API call
+
+
+user(yaml or Json scripts) ------------------> IAC tool(ARM, CFT, TERRAFORM) -------------------> AWS(API calls) (cloud platform tool)
+
+
+another multi cloud IAC tool is crossPlane
+
+versioned:- these templates can be stored in s3 bucket  or github repository and can be versioned .
+declarative- what you sees is what you have means its like what the commands given for these are present in cloud platform 
+
+when you use cli- when as devops user for short actions like checking the lists of s3 bucket or ec2 instance we should prefer CLi over cft or any IAC tools.
+
+but to perform creation or deleteion of cloud infrastructure it is convinent and recommended to use IAC tool which is comprensible , has a track too see the script and correct it or version it or upgrade or modify it.
+
+CFT- is used notonly for Infrastructure creation it si used for Drift Detection.
+
+Drift Detection.
+
+what it is ? as it can detect the change what modified by any user , and what are the differences with our original configuration.
+
+STACKS:-
+=============
+UI-aws console
+
+serch CFT---> stack------> create stack or import stack
+
+CFt template structute:-
+version
+Description
+metadata
+parameters
+rules
+mappings
+conditions
+
+# above all are not mandatory
+
+Resources #it is mandatory
+
+outputs
+
+
+NECESSARY PLUGINS IN vs cODE.
+
+yaml and AWS Tool Kit
+
+
+code commit is like aws private git hub but industries donot prefer because of less feature comapre to git hub, gitlab, bitbukket.
+

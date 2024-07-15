@@ -1,0 +1,163 @@
+
+
+aws login
+==========
+
+$ aws configure
+AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
+AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+Default region name [None]: us-west-2
+Default output format [None]: json
+
+
+
+## ---> only two access keys can be created for a n user .
+
+
+$ aws s3 ls
+
+lets understand what this command does
+
+aws (calls api of aws to the sevice "s3" and do the "ls" listing task)
+and brngs the output back.
+
+root@ricky:/media/ricky/Local Disk1/aws_solution_architecte/PROJECT-68# aws s3 ls
+2024-07-04 23:56:59 test-bucket-11-mukti.com
+
+like this.
+
+
+aws (service name) (refer in google aws rference service name eg:- aws reference ec2)
+
+aws ec2 run-instances --image-id ami-003932de22c285676 --instance-type t2.micro --key-name Ohio-key --subnet-id subnet-01f9029a5235da7cb --security-group-ids sg-0931d8f6296947ee6 --tag-specifications 'ResourceType=instance, Tags=[{Key=Name, Value=K-Master}]'
+
+
+output :-
+-----------------
+
+
+{
+    "Groups": [],
+    "Instances": [
+        {
+            "AmiLaunchIndex": 0,
+            "ImageId": "ami-003932de22c285676",
+            "InstanceId": "i-09d3b00115f6d0645",
+            "InstanceType": "t2.micro",
+            "KeyName": "Ohio-key",
+            "LaunchTime": "2024-07-07T16:44:26+00:00",
+            "Monitoring": {
+                "State": "disabled"
+            },
+            "Placement": {
+                "AvailabilityZone": "us-east-2b",
+                "GroupName": "",
+                "Tenancy": "default"
+            },
+            "PrivateDnsName": "ip-70-0-23-238.us-east-2.compute.internal",
+            "PrivateIpAddress": "70.0.23.238",
+            "ProductCodes": [],
+            "PublicDnsName": "",
+            "State": {
+                "Code": 0,
+                "Name": "pending"
+            },
+            "StateTransitionReason": "",
+            "SubnetId": "subnet-01f9029a5235da7cb",
+            "VpcId": "vpc-0c28b5d0f31ca5088",
+            "Architecture": "x86_64",
+            "BlockDeviceMappings": [],
+            "ClientToken": "f36eb531-34a9-4273-a997-53acac5afa08",
+            "EbsOptimized": false,
+            "EnaSupport": true,
+            "Hypervisor": "xen",
+            "NetworkInterfaces": [
+                {
+                    "Attachment": {
+                        "AttachTime": "2024-07-07T16:44:26+00:00",
+                        "AttachmentId": "eni-attach-0d5d66ef242d4db44",
+                        "DeleteOnTermination": true,
+                        "DeviceIndex": 0,
+                        "Status": "attaching",
+                        "NetworkCardIndex": 0
+                    },
+                    "Description": "",
+                    "Groups": [
+                        {
+                            "GroupName": "sec-gRP_1",
+                            "GroupId": "sg-0931d8f6296947ee6"
+                        }
+                    ],
+                    "Ipv6Addresses": [],
+                    "MacAddress": "06:ac:dd:aa:fd:ff",
+                    "NetworkInterfaceId": "eni-083ee9aa992444eba",
+                    "OwnerId": "975050357166",
+                    "PrivateDnsName": "ip-70-0-23-238.us-east-2.compute.internal",
+                    "PrivateIpAddress": "70.0.23.238",
+                    "PrivateIpAddresses": [
+                        {
+                            "Primary": true,
+                            "PrivateDnsName": "ip-70-0-23-238.us-east-2.compute.internal",
+                            "PrivateIpAddress": "70.0.23.238"
+                        }
+                    ],
+                    "SourceDestCheck": true,
+                    "Status": "in-use",
+                    "SubnetId": "subnet-01f9029a5235da7cb",
+                    "VpcId": "vpc-0c28b5d0f31ca5088",
+                    "InterfaceType": "interface"
+                }
+            ],
+            "RootDeviceName": "/dev/sda1",
+            "RootDeviceType": "ebs",
+            "SecurityGroups": [
+                {
+                    "GroupName": "sec-gRP_1",
+                    "GroupId": "sg-0931d8f6296947ee6"
+                }
+            ],
+            "SourceDestCheck": true,
+            "StateReason": {
+                "Code": "pending",
+                "Message": "pending"
+            },
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "K-Master"
+                }
+            ],
+            "VirtualizationType": "hvm",
+            "CpuOptions": {
+                "CoreCount": 1,
+                "ThreadsPerCore": 1
+            },
+            "CapacityReservationSpecification": {
+                "CapacityReservationPreference": "open"
+            },
+            "MetadataOptions": {
+                "State": "pending",
+                "HttpTokens": "optional",
+                "HttpPutResponseHopLimit": 1,
+                "HttpEndpoint": "enabled",
+                "HttpProtocolIpv6": "disabled",
+                "InstanceMetadataTags": "disabled"
+            },
+            "EnclaveOptions": {
+                "Enabled": false
+            },
+            "BootMode": "uefi-preferred",
+            "PrivateDnsNameOptions": {
+                "HostnameType": "ip-name",
+                "EnableResourceNameDnsARecord": false,
+                "EnableResourceNameDnsAAAARecord": false
+            },
+            "MaintenanceOptions": {
+                "AutoRecovery": "default"
+            },
+            "CurrentInstanceBootMode": "legacy-bios"
+        }
+    ],
+    "OwnerId": "975050357166",
+    "ReservationId": "r-02726069c175e1e9d"
+}

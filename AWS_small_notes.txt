@@ -1,0 +1,57 @@
+aws notes:-
+
+. in aws security is a n shared responsibilty
+
+port-25
++++++++++
+aws blocks port-25 by default as it's for mailing activity. and to avoid spams it blocks it.
+
+
+$ python3 -m http.server 8000 # [to install a python server in port 8000]
+
+
+s3-buket-user
+
+user@1234
+
+arn:aws:s3:::test-bucket-11-mukti.com
+
+
+-----------------------------------------------
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowOwnerOnlyAccess",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::test-bucket-11-mukti.com/*",
+                "arn:aws:s3:::test-bucket-11-mukti.com"
+            ],
+            "Condition": {
+                "StringNotEquals": {
+                    "aws:PrincipalArn": "arn:aws:iam::975050357166:root"
+                }
+            }
+        }
+    ]
+}
+-----------------------------------------
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::test-bucket-11-mukti.com/*"
+        }
+    ]
+}
+
+----------------------------------
+

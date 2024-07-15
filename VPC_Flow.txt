@@ -1,0 +1,77 @@
+flow diagram AWS VPC 
+===========================
+
+Inbound Flow:
+
+     User
+       ↓
+     IGW
+       ↓
+  Public IP/Elastic IP
+       ↓
+     ELB
+       ↓
+  Route Table
+       ↓
+  Security Group / NACL
+       ↓
+  EC2 Instance / RDS
+       ↓
+  Application
+  
+  ===========================================
+
+Outbound Flow:
+
+  Application
+       ↑
+  EC2 Instance / RDS
+       ↑
+  Security Group / NACL
+       ↑
+  Route Table
+       ↑
+       ┌───────────────┐
+       │   Option 1    │
+       │      ELB      │
+       │      ↑        │
+       │     SNAT      │
+       └───────────────┘
+       ↑
+       ┌───────────────┐
+       │   Option 2    │
+       │  NAT Gateway  │
+       └───────────────┘
+       ↑
+  Public IP/Elastic IP
+       ↑
+     IGW
+       ↑
+Other Application on the Internet
+
+
+
+Here’s a corrected and combined flow diagram for both inbound and outbound traffic in an AWS VPC environment. I'll provide a textual representation of the flow, which you can then convert into a visual diagram using a diagramming tool.
+
+Inbound Traffic Flow
+User
+Internet Gateway (IGW)
+Public IP/Elastic IP
+Elastic Load Balancer (ELB)
+Route Table
+Security Group or Network ACL (NACL)
+EC2 Instance or Other AWS Service (e.g., RDS)
+Application
+Outbound Traffic Flow
+EC2 Instance or Other AWS Service (e.g., RDS)
+Security Group or Network ACL (NACL)
+Route Table
+Option 1:
+Elastic Load Balancer (ELB)
+Source Network Address Translation (SNAT)
+Option 2:
+NAT Gateway
+Public IP/Elastic IP
+Internet Gateway (IGW)
+Other Application on the Internet
+Combined Flow Diagram
