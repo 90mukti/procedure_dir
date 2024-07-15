@@ -1,0 +1,145 @@
+pip is cli command like 'apt' in ubuntu like docker cli in docker kubectl for kubernetes
+
+pypi- python package index like docker hub for docker all related libraries (collection of packages will be avialabe) which we can install and import
+
+eg:- boto3 for aws package installation aws sdk(software development kit)
+	jira for jira packages
+	github for git hub
+
+to install these commands which is free  open source
+
+$ pip install boto3
+
+function:- example:-
+
+calc2.py
+--------
+     	num1 = int(input("enter num1:"))
+     	num2 = int(input("enter num2:"))
+     	
+	def addition(num1, num2):
+	   add = num1 + num2
+	   return add  
+	
+	x = addtion(num1, num2)
+	print(x)
+	
+	def substraction():
+	  sub = num1 - num2
+	  print("substraction: ", sub)
+	  
+	substraction():
+
+colection of or a function function in a python page which raefered in another page as module.
+
+mumodule.py
+------------
+ 
+import calc2
+
+calc2
+ 
+or 
+
+only single function if you want to invoke
+
+
+calc2.addition() | addition() is a function in calc2.py # module.function()
+
+similarly
+
+you can alias or rename or rechristian the module name in another python file as global 
+
+like 
+
+import calc2 as cc2
+
+cc2
+
+or cc2.addition()
+
+
+ it will act as same as above
+ 
+
+how much argument present in function bracket i.e. function(arg1, arg2) or function(arg1, arg2, arg3, arg4) or function(arg1, arg2,....argn)
+
+while it is called from any where as module or package or in same module that much it should called with that much argument as it it returns value to that much number of arguments else it show error
+
+while it is called some where  a return statement should be there.
+
+
+again
+
+python reads like urdu i.e. left two right but in descending order
+
+
+<---------------------------------------- (1)
+
+<---------------------------------------- (2)
+
+
+one morw it reads functions 1st then goes inside it.
+
+ i.e.
+
+  def function_1(): (1)
+
+	arguments......(4)
+
+	arguments ......(5)
+
+        return xxxx
+ def function_2(): (2) (8)
+
+	arguments......(9)
+
+	 arguments ......(10)
+
+          return xxxx
+        return xxxx
+ function_1() (3)(6)
+ function_2() (7)(11)
+
+function ends with function calling else it doesn't show out put
+
+
+virtual environment:
+------------------------
+
+$ pip install virtualenv
+
+$ apt install python3.10-venv
+
+$ python -m venv <project-name> | -m for module venev is a inbuild module
+
+ls -ltr
+
+you will see a folder named <project-name>
+
+do ssh the machine do above
+
+and then do source <project-name>/bin/activate
+
+then you will go enter to this virtual env
+
+virtualenv-name eg:-<project-name> path/sys$ do install anything that would only limited to this virtual env
+
+eg:- (project-1) root@ricky:/media/ricky/Local Disk/aws_solution_architecte/python_learning#
+     (project-2) root@ricky:/media/ricky/Local Disk/aws_solution_architecte/python_learning#
+
+$  pip install jira
+
+$ pip list | grep jira
+
+exit from this virtual env
+
+
+$ deactivate
+
+
+$ pip list
+
+$ pip list | grep boto3
+
+$ 
