@@ -1,0 +1,140 @@
+Jenkins
+==================
+
+ uninstall previous version of java
+--------------------------------------
+$ dpkg -l | grep OpenJDK
+
+uninstall
+00000000000
+
+$ sudo apt purge openjdk-11-jre-headless
+
+$ java --version
+
+
+install jdk latest version from Jenkins site run bash script
+
+bash:------------
+++++++++++++++++++++
+#!/bin/bash
+
+sudo apt update
+sudo apt install fontconfig openjdk-17-jre -y
+java -version
+openjdk version "17.0.8" 2023-07-18
+OpenJDK Runtime Environment (build 17.0.8+7-Debian-1deb12u1)
+OpenJDK 64-Bit Server VM (build 17.0.8+7-Debian-1deb12u1, mixed mode, sharing)
+
+===============================================================================
+$ dpkg -l | grep OpenJDK
+
+install Jenkins longterm script (for ubuntu)
+=================================
+#!/bin/bash
+
+sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update
+sudo apt-get install jenkins -y
+
+==========================================
+
+check 
+
+$ systemctl status jenkins
+q (to out)
+
+=====================
+
+go to browser
++++++++++++++++++
+http://localhostip(public ip):8080 #(default Jenkins port)
+
+to change default port:
+
+nano /etc/default/jenkins
+
+# port for HTTP connector (default 8080; disable with -1)
+HTTP_PORT=8080 (change  your port)
+
+give sudo previlage to jenkins:
+::::::::::::::::::::::::::::::::::
+
+$ nano/vi/gedit  /etc/sudoers
+
+# User privilege specification
+root    ALL=(ALL:ALL) ALL
+jenkins ALL=(ALL) NOPASSWD: ALL #(add this line save and exit)
+
+==================================================================
+dash board Jenkins
+
+password default
+========================
+
+ cat /var/lib/jenkins/secrets/initialAdminPassword
+
+go with install suggested plugin
+
+go to bash of your pc:
+----------------------
+$ which jenkins
+
+o/p- /usr/bin/Jenkins
+
+
+WEB-HOOK
+++++++++++++++++++
+
+go to GitHub go to your repository
+
+go to settings
+
+find WEBHOOKs
+
+Payload URl
+
+paste ur https://Jenkins-server-ip:port/github-webhook/
+
+eg:- http://54.215.238.29:8080/github-webhook/
+
+
+then add or update webhook
+=====================================
+important Jenkins plugins post setup Jenkins server
+----------------------------------------------------------
+
+GitHub (all related)
+
+Role-based Authorization strategy (go to security Authorization slecte role-based strategy aplly and save)----> (a new option will appear in manage Jenkins manage & assign roles for users)
+
+maven (all related plugins) (go to tools and maven settings)
+
+build pipeline
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+remote node work
+
+create credentianl 
+
+Id- ubuntu
+name-Ubuntu
+ copy paste pem key(save & exit)
+
+create node
+
+address /home/ubuntu Jenkins
+
+and key select(ubuntu)
+
+go to new job
+
+1st section end
+
+"RESTRICT where this project can be run"
+select the Node
+
