@@ -1,0 +1,17 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  annotations:
+    description: this is my pod for environment
+  name: envpod
+spec:
+  containers: 
+    - name: c03
+      image: ubuntu
+      command: ["/bin/bash", "-c", "while true print chandan bhaina 4thara ; sleep 2 ; done"]
+      env:
+        - name: MYNAME
+          Value: MUKTI THE DON
+
+         
+

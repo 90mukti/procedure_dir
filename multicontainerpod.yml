@@ -1,0 +1,12 @@
+kind: Pod
+apiVersion: v1
+metadata: 
+  name: pod2
+spec:
+  containers:
+     - name: c01
+       image: ubuntu
+       command: ["/bin/bash", "-c","while true; do echo jay jagganath ; sleep 10 ; done"]  
+     - name: c02
+       image: centos
+       command: ["/bin/bash", "-c", "while true; do echo jayaguru; sleep 4 ; done"]   

@@ -1,0 +1,16 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: lablepod1
+  annotations:
+    description: label baneiba
+  labels:
+     env: development
+     class: pods  
+spec:
+   containers:
+     - name: c80
+       image: ubuntu
+       command: ["/bin/bash", "-c","while true ; do echo aji ventkata ku call kari bi ; sleep 3; done"]
+   restartPolicy: Never
+
