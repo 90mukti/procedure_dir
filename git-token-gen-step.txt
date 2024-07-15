@@ -1,0 +1,60 @@
+GIT -----------------TOKEN generation steps
+
+GitHub removed support for password authentication for Git operations over HTTPS on August 13, 2021. Instead, you need to use a personal access token (PAT) or another form of authentication like SSH.
+
+Steps to Use Personal Access Token (PAT) for Git Operations
+Generate a Personal Access Token (PAT):
+
+Go to your GitHub account.
+Navigate to Settings > Developer settings > Personal access tokens.
+Click on Generate new token.
+Give your token a descriptive name, select the scopes or permissions you need (for pushing to a repository, repo scope is sufficient), and generate the token.
+Copy the generated token. You will not be able to see it again.
+Configure Git to Use the Token:
+
+When you are prompted for your password during git push, use the PAT instead of your password.
+Here is how you can use the PAT:
+
+sh
+Copy code
+git push https://<your_token>@github.com/90mukti/<repositoryname.git> <branch name>
+
+eg:- git push https://<your_token>@github.com/90mukti/TEST-2024-repository.git main
+Replace <your_token> with the PAT you generated.
+
+Alternatively, you can configure your Git remote URL to include the PAT:
+
+sh
+Copy code
+git remote set-url origin https://<your_token>@github.com/90mukti/TEST-2024-repository.git
+Then you can use git push origin main as usual.
+
+Using SSH for Authentication
+Generate SSH Key (if you don't already have one):
+
+Open your terminal and type:
+sh
+Copy code
+ssh-keygen -t ed25519 -C "your_email@example.com"
+Follow the prompts to save the key.
+Add SSH Key to GitHub:
+
+Copy the SSH key to your clipboard:
+sh
+Copy code
+cat ~/.ssh/id_ed25519.pub
+Go to your GitHub account.
+Navigate to Settings > SSH and GPG keys > New SSH key.
+Paste your SSH key and give it a descriptive title.
+Configure Git to Use SSH:
+
+Change your Git remote URL to use SSH:
+sh
+Copy code
+git remote set-url origin git@github.com:90mukti/TEST-2024-repository.git
+Now you can push using SSH without needing to enter a token each time:
+
+sh
+Copy code
+git push origin main
+Choose the method that suits you best, either using PAT or SSH keys. Both methods provide a secure way to authenticate with GitHub.

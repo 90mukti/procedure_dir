@@ -1,0 +1,48 @@
+ansible installation:-
+=====================
+
+$ apt-add-repository ppa:ansible/ansible && apt update && apt install ansible -y
+
+
+$ cd /etc/ansible/
+
+$ls
+
+$ cat ansible.cfg
+
+$ ansible-config init --disabled -t all > ansible.cfg
+
+$ nano ansible.cfg
+
+go to 
+--------------
+	|
+	|
+       \  /
+ # (pathlist) Comma separated list of Ansible inventory sources
+;inventory=/etc/ansible/hosts
+(remove semiclon)
+
+$ ls
+
+ansible.cfg  hosts  roles
+
+go to 
+
+$ nano hosts
+
+in last add private ip of slave machines
+ save and exit
+
+example:-
+================
+
+---
+ - hosts: 70.0.0.151
+   tasks:
+          - apt:
+                name: maven
+                state: present
+
+
+	
