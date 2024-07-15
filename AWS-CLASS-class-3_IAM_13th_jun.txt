@@ -1,0 +1,22 @@
+AWS CLASS:- class-3 IAM  {bunch of policy = permission = entity}
+------------------------
+
+user-john
+passwd-john@1234
+
+user-Kelly
+passwd-kelly@1234
+
+12 digit user account ID:- 975050357166
+
+
+1- A user can be created without any permissions
+2- we can add a user to a group from the user console and from the user-group console as well.
+3- we can add direct policies or permissions to a user. 
+
+AWS Multifactor authenticator(MFA)
+=====================================
+Maximum 8 devices can be attached.
+
+
+
