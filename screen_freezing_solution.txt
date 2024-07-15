@@ -1,0 +1,17 @@
+screen freezing issue resolve
+open /etc/default/grub/ interminal
+sudo nano or vi or gedit (i prefer nano) 
+$ sudo nano /etc/default/grub/
+
+change [GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"] 
+-----------------------to ------------------------------------
+[GRUB_CMDLINE_LINUX_DEFAULT="quiet splash acpi=force"]
+
+and ave and exit (ctl+S & ctl +x )
+
+run command  $ sudo update-grub
+
+apt update
+
+reboot
+

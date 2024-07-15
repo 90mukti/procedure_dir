@@ -1,0 +1,27 @@
+linux extra:
+==================
+
+ALIAS HOW TO USE|??
+=====================
+
+ere's how you can set up an alias for python3:
+
+Open your shell configuration file (e.g., .bashrc or .zshrc depending on your shell). You can do this with a text editor. For example, to open .bashrc with nano, you can use:
+
+
+run
+$ nano ~/.bashrc
+Add the alias to the file. Add the following line:
+
+
+eg:-
+$ alias py='python3'
+Save the file and reload your shell configuration. If you used nano, you can save and exit with Ctrl+O followed by Ctrl+X. Then, reload the configuration:
+
+
+run
+$ source ~/.bashrc
+
+Now, you should be able to use py as an alias for python3.
+
+==================================================================

@@ -1,0 +1,119 @@
+service Kubernetes explanation
+
+
+Explanation of the Script and Its Components
+service1.yaml
+yaml
+Copy code
+kind: Service
+apiVersion: v1
+metadata:
+  name: randserv
+spec:
+  selector:
+    tag: hariomm
+  ports:
+    - protocol: TCP
+      port: 84
+      targetPort: 8084
+  type: ClusterIP   
+Key Components
+kind: Service: This defines the resource type as a Service. Services are used to expose your application running on a set of Pods as a network service.
+
+apiVersion: v1: This specifies the version of the Kubernetes API you're using.
+
+metadata:
+
+name: randserv: This is the name of the Service.
+spec:
+
+selector:
+
+tag: hariomm: The selector determines which Pods the Service applies to. It looks for Pods with the label tag: hariomm. The correct format is as written, without labels: in front of it.
+ports:
+
+protocol: TCP: The protocol used by the Service. TCP is the default and most common.
+port: 84: The port on which the Service will be exposed.
+targetPort: 8084: The port on the Pod that the Service should direct traffic to. In this case, traffic sent to port 84 on the Service will be forwarded to port 8084 on the selected Pods.
+type: ClusterIP: This specifies how the Service is exposed. ClusterIP is the default type, which exposes the Service on a cluster-internal IP. Choosing not to specify this would default to ClusterIP.
+
+Why Use a Service?
+Stable Network Identity: Services provide a consistent IP and DNS name for a set of Pods, which can change over time due to scaling or rescheduling.
+Load Balancing: Services can load balance traffic across multiple Pods.
+Decoupling: They decouple the clients from Pods, allowing the backend Pods to change without affecting the clients.
+Types of Services
+ClusterIP (default): Exposes the Service on an internal IP in the cluster. Only accessible within the cluster.
+
+NodePort: Exposes the Service on a static port on each node's IP. Makes the Service accessible from outside the cluster using <NodeIP>:<NodePort>.
+
+LoadBalancer: Exposes the Service externally using a cloud provider's load balancer. Works in conjunction with NodePort.
+
+ExternalName: Maps the Service to the contents of the externalName field (e.g., mydatabase.example.com).
+
+Example of Other Service Files
+NodePort Service
+yaml
+Copy code
+kind: Service
+apiVersion: v1
+metadata:
+  name: my-nodeport-service
+spec:
+  selector:
+    app: myapp
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+      nodePort: 30036
+  type: NodePort
+LoadBalancer Service
+yaml
+Copy code
+kind: Service
+apiVersion: v1
+metadata:
+  name: my-loadbalancer-service
+spec:
+  selector:
+    app: myapp
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: LoadBalancer
+ExternalName Service
+yaml
+Copy code
+kind: Service
+apiVersion: v1
+metadata:
+  name: my-externalname-service
+spec:
+  type: ExternalName
+  externalName: mydatabase.example.com
+Objects in Service File
+metadata: Information about the Service (e.g., name, labels).
+spec: Specifies the behavior of the Service.
+selector: Labels used to identify Pods this Service should route to.
+ports: List of ports exposed by the Service.
+type: Specifies the type of Service (e.g., ClusterIP, NodePort, LoadBalancer, ExternalName).
+Why selector with labels: is Incorrect
+In the spec section, selector should directly map to the label key and value pairs. Adding labels: before it is incorrect and will cause a parsing error.
+
+Example of Correct service1.yaml
+yaml
+Copy code
+kind: Service
+apiVersion: v1
+metadata:
+  name: randserv
+spec:
+  selector:
+    tag: hariomm
+  ports:
+    - protocol: TCP
+      port: 84
+      targetPort: 8084
+  type: ClusterIP
+This correctly matches Pods with the label tag: hariomm and routes traffic from port 84 on the Service to port 8084 on the Pods.

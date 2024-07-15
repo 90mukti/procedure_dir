@@ -1,0 +1,44 @@
+for windows:-
+
+go to :-https://developer.hashicorp.com/terraform/install
+
+if amd64 then download that file else 386 file
+
+then create a folder name eg:- \Softwares\
+
+copy and paste the zip file in this folder and extract here
+
+then 
+
+
+step-1:- go and search edit the system environment variables in the control panel(in start menu)
+
+in end edit system variables 
+
+
+step-2:- there is a button name "environment variable" click on that 
+
+
+step-3:- in system variable section find "Path" click on that and  go to edit 
+
+
+step-4:- new _--------> and copy the folder link like :c\Softwares\terraform_1.8.5_windows_amd64\ as the terraform.exe files lies in this (folder link)
+
+step-5:- now go to cmd and run "terraform --version"
+
+
+in this way only from this folder only you can access the terraform
+
+but if you want to access it from any where of you computer
+
+step-1:- Go to "environment variables" again
+
+step-2:- "user variables for $user" ($user= username eg:- herein my case Mukti) and click on path ----> edit ----> new and add the ":c\Softwares\terraform_1.8.5_windows_amd64\"(where you have stored the exe file) the path
+
+
+terraform cycle
+===================
+
+terraform init -----> terraform validate ------> terraform Plan --------> terraform apply -------> terraform Destroy
+
+instead of terraform apply we can use terraform apply --auto-approve

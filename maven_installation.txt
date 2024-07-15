@@ -1,0 +1,40 @@
+maven installation:-
++++++++++++++++++++++++++++++
+
+#!/bin/bash
+
+# Install unzip if not installed
+sudo apt-get update
+sudo apt-get install unzip -y
+
+# Step 1: Download the Maven binary zip file
+wget https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.9.7/apache-maven-3.9.7-bin.zip
+
+# Step 2: Extract the zip file to /opt directory
+sudo unzip -o apache-maven-3.9.7-bin.zip -d /opt
+
+# Step 3: Create a symbolic link to the Maven directory (optional, for easier version management)
+sudo ln -sf /opt/apache-maven-3.9.7 /opt/maven
+
+# Step 4: Set up environment variables
+echo "export M2_HOME=/opt/maven" | sudo tee /etc/profile.d/maven.sh
+echo "export PATH=\$M2_HOME/bin:\$PATH" | sudo tee -a /etc/profile.d/maven.sh
+
+# Step 5: Load the environment variables
+source /etc/profile.d/maven.sh
+sudo chmod +x /etc/profile.d/maven.sh
+
+source /etc/profile.d/maven.sh
+echo $PATH
+# Step 6: Verify the installation
+mvn -version
+
+
+--------------------------------------------------------------------------------------------------------------------
+
+# Here's how to source the profile script in the current shell session:
+=========================================================================
+source /etc/profile.d/maven.sh
+
+
+mvn -version
