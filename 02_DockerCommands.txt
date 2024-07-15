@@ -1,0 +1,74 @@
+  1  docker pull centos
+    2  docker images
+    3  docker pull ubuntu
+    4  ;s
+    5  ls
+    6  rm *
+    7  docker container run -it --name c1 -d centos
+    8  docker ps -a
+    9  docker container run -it --name web -d nginx
+   10  docker images
+   11  docker ps -a
+   12  docker ps
+   13  docker container ls
+   14  docker container run -it --name c2 -d ubuntu
+   15  docker ps
+   16  docker container ls
+   17  docker stop c1
+   18  docker ps -a
+   19  docker container ls --all
+   20  docker start c1
+   21  docker ps
+   22  docker restart c1
+   23  docker ps -a
+   24  docker kill c1
+   25  docker ps -a
+   26  docker start c1
+   27  docker pause c1
+   28  docker ps -a
+   29  docker unpause c1
+   30  docker ps -a
+   31  echo "<h1> this is suprer cool html file </h1>" > test.html
+   32  cat test.html
+   33  docker container run -it --name web1 -p 80:80 -d ubuntu
+   34  docker exec -it web1 bash
+   35  docker cp test.html web1:/var/www/html
+   36  docker exec -it web1 bash
+   37  docker ps
+   38  docker commit web1 webimg
+   39  docker images
+   40  docker rm c1
+   41  docker stop c1
+   42  docker rm c1
+   43  docker ps -a
+   44  docker rm -f web
+   45  docker ps -a
+   46  docker ps -a -q
+   47  docker rm -f $(docker ps -a -q)
+   48  docker images
+   49  docker container run -it --name web -p 84:80 -d webimg
+   50  docker exec -it web bash
+   51  docker images
+   52  docker image tag webimg ramansharma95/weimh
+   53  docker images
+   54  docker login
+   55  docker logout
+   56  docker login
+   57  docker push ramansharma95/weimh
+   58  docker ps
+   59  docker rm -f web
+   60  curl localhost:5000/v2/_catalog
+   61  docker images
+   62  docker rmi ramansharma95/weimh
+   63  docker image tag webung localhost:5000/webimg
+   64  docker image tag webing localhost:5000/webimg
+   65  docker image tag webimg localhost:5000/webimg
+   66  docker images
+   67  docker push localhost:5000/webimg
+   68  docker images
+   69  docker rmi webimg
+   70  docker rmi localhost:5000/webimg
+   71  docker images
+   72  docker pull localhost:5000/webimg
+   73  docker images
+   74  history
